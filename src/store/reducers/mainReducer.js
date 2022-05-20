@@ -8,8 +8,7 @@ const initialState = {
     { word: 'ridiculous', value: 'смішний' },
     { word: 'auto', value: 'автоматичний' },
     { word: 'car', value: 'авто' },
-    { word: 'fee', value: 'плата' },
-    { word: 'debt', value: 'борг' },
+    { word: 'fee', value: 'плата' }
   ],
   currentPage: 1,
   pageSize: 3,

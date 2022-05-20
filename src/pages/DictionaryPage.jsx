@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import ItemsList from '../components/common/ItemsList'
 import { Link } from 'react-router-dom'
 import { paginate } from '../utils/paginate'
