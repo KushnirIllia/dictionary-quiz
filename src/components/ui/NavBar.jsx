@@ -1,13 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import PropTypes from 'prop-types'
+import { useSelector } from 'react-redux'
 
-const NavBar = ({ label, linksList }) => {
-  return (
+const NavBar = () => {
+  const id = Date.now()
+  const linksList = useSelector(state => state.navBar.links)
+  const label = useSelector(state => state.navBar.label)
+
+  return linksList.length !== 0 && label.trim() !== '' && (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">{label}</Link>
-        <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div className="navbar-collapse" id={id}>
           <ul className="navbar-nav">
             {linksList.map(link => (
               <li key={`${link.to}_`}>
@@ -22,12 +26,7 @@ const NavBar = ({ label, linksList }) => {
         </div>
       </div>
     </nav>
-
   )
-}
-NavBar.propTypes = {
-  label: PropTypes.string.isRequired,
-  linksList: PropTypes.array.isRequired,
 }
 
 export default NavBar

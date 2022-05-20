@@ -1,8 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Button from './Button'
+import { useDispatch } from 'react-redux'
+import { deleteWordAction } from '../../store/reducers/mainReducer'
 
-const ItemsList = ({ itemsList, onDeleteItem }) => {
+const ItemsList = ({ itemsList }) => {
+  const dispatch = useDispatch()
+  const onDeleteItem = (itemWord) => {
+    dispatch(deleteWordAction(itemWord))
+  }
   const list = typeof itemsList === 'object'
     ? Object.keys(itemsList).map(key => ({ word: itemsList[key].word, value: itemsList[key].value }))
     : itemsList
@@ -21,7 +27,6 @@ const ItemsList = ({ itemsList, onDeleteItem }) => {
 }
 ItemsList.propTypes = {
   itemsList: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired,
-  onDeleteItem: PropTypes.func.isRequired
 }
 
 export default ItemsList
