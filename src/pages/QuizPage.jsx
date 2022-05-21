@@ -4,6 +4,7 @@ import Button from '../components/common/Button'
 import Badge from '../components/common/Badge'
 import { useDispatch, useSelector } from 'react-redux'
 import { addQuizListOfWords, increaseCountOfCorrectAnswers, setQuizStatus } from '../store/reducers/quizReducer'
+import MainLayout from '../layouts/MainLayout'
 
 const QuizPage = () => {
   const dispatch = useDispatch()
@@ -26,9 +27,7 @@ const QuizPage = () => {
   }
   const checkLength = itemsList.length < 10
   return quizListOfWords &&
-    <>
-      <h1>Тест</h1>
-      <hr/>
+    <MainLayout title={'Тест'}>
       {showQuiz
         ? <>
           <Quiz/>
@@ -38,7 +37,7 @@ const QuizPage = () => {
           {checkLength && <Badge color={'danger'} classesName={'mt-4'}>Мін. кількість слів 10</Badge>}
         </div>
       }
-    </>
+    </MainLayout>
 }
 
 export default QuizPage

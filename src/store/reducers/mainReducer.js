@@ -1,15 +1,5 @@
 const initialState = {
-  listOfWords: [
-    { word: 'juice', value: 'сік' },
-    { word: 'dog', value: 'собака' },
-    { word: 'crave', value: 'жадати' },
-    { word: 'join', value: 'приєднатися' },
-    { word: 'school', value: 'школа' },
-    { word: 'ridiculous', value: 'смішний' },
-    { word: 'auto', value: 'автоматичний' },
-    { word: 'car', value: 'авто' },
-    { word: 'fee', value: 'плата' }
-  ],
+  listOfWords: [],
   currentPage: 1,
   pageSize: 3,
 }

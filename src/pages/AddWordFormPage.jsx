@@ -6,6 +6,7 @@ import Badge from '../components/common/Badge'
 import { addWordAction } from '../store/reducers/mainReducer'
 import { useDispatch, useSelector } from 'react-redux'
 import { changeDataField, clearDataFields, setErrorsForm, setStatusForm } from '../store/reducers/formReducer'
+import MainLayout from '../layouts/MainLayout'
 
 const AddWordFormPage = () => {
   const dispatch = useDispatch()
@@ -18,7 +19,7 @@ const AddWordFormPage = () => {
     dispatch(addWordAction(item))
   }
   const changeField = (target) => {
-    dispatch(changeDataField({ name: target.name, value: target.value }))
+    dispatch(changeDataField({ name: target.name.toLowerCase(), value: target.value.toLowerCase() }))
   }
   const clearFields = () => {
     dispatch(clearDataFields())
@@ -68,9 +69,7 @@ const AddWordFormPage = () => {
     }
   }
   return (
-    <>
-      <h1>Додати слово</h1>
-      <hr/>
+    <MainLayout title={'Додати слово'}>
       <form onSubmit={handleSubmit} className={'m-4 d-flex flex-column align-items-start'}>
         <TextField label={'Слово'} onChange={changeField} name={'word'} placeholder={'dog'}
                    value={data.word} error={errors.word}/>
@@ -81,7 +80,7 @@ const AddWordFormPage = () => {
         </div>
         {status && <Badge>Слово додане</Badge>}
       </form>
-    </>
+    </MainLayout>
   )
 }
 export default AddWordFormPage
