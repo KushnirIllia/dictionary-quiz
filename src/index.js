@@ -5,15 +5,17 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import App from './App'
 import { Provider } from 'react-redux'
 import { store } from './store'
+import { HelmetProvider } from 'react-helmet-async'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
-
 
 root.render(
   <Provider store={store}>
     <Router>
       <React.StrictMode>
-        <App/>
+        <HelmetProvider>
+          <App/>
+        </HelmetProvider>
       </React.StrictMode>
     </Router>
   </Provider>
